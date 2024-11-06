@@ -8,6 +8,7 @@ import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.IType;
 import Model.Value.IValue;
+import Model.Value.StringValue;
 
 public class AssignStatement implements IStatement{
     private String id;

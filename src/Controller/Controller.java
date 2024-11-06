@@ -8,6 +8,8 @@ import Model.Statement.*;
 import Model.Value.IValue;
 import Repository.IRepository;
 
+import java.io.IOException;
+
 public class Controller {
     private IRepository repo;
     private boolean displayFlag;
@@ -21,7 +23,7 @@ public class Controller {
         this.repo.addProgramState(prg);
     }
 
-    public ProgramState oneStep(ProgramState currentState) throws ControllerException, StackException, StatementException, ExpressionException, DictionaryException {
+    public ProgramState oneStep(ProgramState currentState) throws ControllerException, StackException, StatementException, ExpressionException, DictionaryException, FileException {
         IStack<IStatement> executionStack = currentState.getExecutionStack();
         if (executionStack.isEmpty()) {
             throw new ControllerException("Program state's execution stack is empty.");
@@ -30,18 +32,23 @@ public class Controller {
         return topStatement.execute(currentState);
     }
 
-    public void allSteps() throws ControllerException, StatementException, StackException, ExpressionException, DictionaryException, ListException {
+    public void allSteps() throws ControllerException, StatementException, StackException, ExpressionException, DictionaryException, ListException, FileException, IOException {
         ProgramState programState = this.repo.getCurrentProgramState();
+        if (programState.getExecutionStack().isEmpty()) {
+            throw new ControllerException("ERROR: The program was already executed. The execution stack is empty.");
+        }
+        this.repo.logPrgStateExec();
         if (this.displayFlag) {
             System.out.println("Program execution started:");
-            System.out.print(programState.toString() + "\n");
+            System.out.print(programState + "\n");
         }
         int outputListSize = 0;
         MyList<IValue > output;
         while (!programState.getExecutionStack().isEmpty()) {
             this.oneStep(programState);
+            this.repo.logPrgStateExec();
             if (this.displayFlag) {
-                System.out.println(programState.toString());
+                System.out.println(programState);
             } else {
                 output = programState.getOutput();
                 if (outputListSize != output.size()) {
@@ -52,11 +59,11 @@ public class Controller {
         }
     }
 
-    public void turnDisplayFlagOn() {
+    void turnDisplayFlagOn() {
         this.displayFlag = true;
     }
 
-    public void turnDisplayFlagOff() {
+    void turnDisplayFlagOff() {
         this.displayFlag = false;
     }
 }

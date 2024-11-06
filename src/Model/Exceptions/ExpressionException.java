@@ -1,7 +1,7 @@
 package Model.Exceptions;
 
 public class ExpressionException extends Exception{
-    private String msg;
+    private final String msg;
 
     public ExpressionException(String msg) {
         super(msg);
@@ -10,6 +10,7 @@ public class ExpressionException extends Exception{
 
     public ExpressionException() {
         super("Expression operation failed.");
+        this.msg = "Expression operation failed.";
     }
 
     @Override

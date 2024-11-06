@@ -1,7 +1,7 @@
 package Model.Exceptions;
 
 public class StackException extends Exception{
-    private String msg;
+    private final String msg;
 
     public StackException(String msg) {
         super(msg);
@@ -10,6 +10,7 @@ public class StackException extends Exception{
 
     public StackException() {
         super("Stack operation failed.");
+        this.msg = "Stack operation failed.";
     }
 
     @Override

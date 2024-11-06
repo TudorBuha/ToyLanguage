@@ -3,6 +3,8 @@ package Model.Value;
 import Model.Type.IType;
 import Model.Type.IntType;
 
+import java.util.Objects;
+
 public class IntValue implements IValue{
     private final int value;
 
@@ -27,5 +29,18 @@ public class IntValue implements IValue{
     @Override
     public IValue deepCopy() {
         return new IntValue(this.value);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        IntValue intValue = (IntValue) o;
+        return value == intValue.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }

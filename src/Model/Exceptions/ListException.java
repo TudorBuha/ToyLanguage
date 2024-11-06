@@ -1,7 +1,7 @@
 package Model.Exceptions;
 
 public class ListException extends Exception{
-    private String msg;
+    private final String msg;
 
     public ListException(String msg) {
         super(msg);
@@ -10,6 +10,7 @@ public class ListException extends Exception{
 
     public ListException() {
         super("List operation failed");
+        this.msg = "List operation failed";
     }
 
     @Override

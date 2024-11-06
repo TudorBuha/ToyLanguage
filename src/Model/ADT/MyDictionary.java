@@ -26,6 +26,17 @@ public class MyDictionary<K, V> implements IDictionary<K, V>{
     }
 
     @Override
+    public V removeByKey(K key) throws DictionaryException {
+        V value = this.elems.remove(key);
+        if (value != null) {
+            return value;
+        }
+        else {
+            throw new DictionaryException("Failed to remove key-value pair: The given key is not in the dictionary");
+        }
+    }
+
+    @Override
     public boolean isDefined(K key) {
         return this.elems.containsKey(key);
     }
@@ -33,22 +44,18 @@ public class MyDictionary<K, V> implements IDictionary<K, V>{
     @Override
     public String toString() {
         StringBuilder elemsInString = new StringBuilder();
-        elemsInString.append("{");
         int i = 0;
         for (Map.Entry<K, V> entry: this.elems.entrySet()) {
             K key = entry.getKey();
             V value = entry.getValue();
-            elemsInString.append("\"");
             elemsInString.append(key.toString());
-            elemsInString.append("\"");
-            elemsInString.append(": ");
+            elemsInString.append(" --> ");
             elemsInString.append(value.toString());
             if (i < this.elems.size() - 1) {
-                elemsInString.append(", ");
+                elemsInString.append("\n");
             }
             i += 1;
         }
-        elemsInString.append("}");
         return elemsInString.toString();
     }
 }

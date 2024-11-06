@@ -10,6 +10,7 @@ public class ControllerException extends Exception{
 
     public ControllerException() {
         super("Controller operation failed.");
+        this.msg = "Controller operation failed.";
     }
 
     @Override

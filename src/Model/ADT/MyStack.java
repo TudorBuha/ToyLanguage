@@ -3,6 +3,7 @@ package Model.ADT;
 import Model.Exceptions.StackException;
 
 import java.util.Stack;
+import java.util.ListIterator;
 
 public class MyStack<T> implements IStack<T>{
     private Stack<T> elems;
@@ -31,26 +32,16 @@ public class MyStack<T> implements IStack<T>{
 
     @Override
     public String toString() {
-        StringBuilder elemsInString = new StringBuilder();
-        elemsInString.append("|");
-        Stack<T> copyElementsReverse = new Stack<T>();
-        T topOfStack;
-        while (!this.elems.empty()) {
-            topOfStack = this.elems.pop();
-            copyElementsReverse.push(topOfStack);
-            elemsInString.append(topOfStack.toString());
-            elemsInString.append(", ");
+        StringBuilder s = new StringBuilder();
+        ListIterator<T> stackIterator = this.elems.listIterator(this.elems.size());
+        while (stackIterator.hasPrevious()) {
+            s.append(stackIterator.previous().toString()).append("\n");
         }
-        String elemsInStringAsString = elemsInString.toString();
-        if (elemsInStringAsString.length() > 2) {
-            elemsInStringAsString = elemsInStringAsString.substring(0, elemsInStringAsString.length() - 2);
+        if (!s.isEmpty()) {
+            return s.deleteCharAt(s.length() - 1).toString();
         }
-        elemsInStringAsString += "|";
-        // restore the stack
-        while (!copyElementsReverse.empty()) {
-            topOfStack = copyElementsReverse.pop();
-            this.elems.push(topOfStack);
+        else {
+            return "";
         }
-        return elemsInStringAsString;
     }
 }

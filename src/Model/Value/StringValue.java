@@ -1,42 +1,42 @@
 package Model.Value;
 
-import Model.Type.BoolType;
 import Model.Type.IType;
+import Model.Type.StringType;
 
 import java.util.Objects;
 
-public class BoolValue implements IValue{
-    private final boolean value;
+public class StringValue implements IValue{
+    private String value;
 
-    public BoolValue(boolean value) {
-        this.value = value;
+    public StringValue(String str) {
+        this.value = str;
     }
 
-    public boolean getValue() {
+    public String getValue() {
         return this.value;
     }
 
     @Override
     public String toString() {
-        return "" + this.value;
+        return this.value;
     }
 
     @Override
     public IType getType() {
-        return new BoolType();
+        return new StringType();
     }
 
     @Override
     public IValue deepCopy() {
-        return new BoolValue(this.value);
+        return new StringValue(this.value);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BoolValue boolValue = (BoolValue) o;
-        return value == boolValue.value;
+        StringValue that = (StringValue) o;
+        return value.equals(that.value);
     }
 
     @Override

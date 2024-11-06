@@ -37,14 +37,12 @@ public class MyList<T> implements IList<T>{
     @Override
     public String toString() {
         StringBuilder elemsInString = new StringBuilder();
-        elemsInString.append("[");
         for (int i = 0; i < this.elems.size(); i++) {
             elemsInString.append(this.elems.get(i).toString());
             if (i < this.elems.size() - 1) {
-                elemsInString.append(", ");
+                elemsInString.append("\n");
             }
         }
-        elemsInString.append("]");
         return elemsInString.toString();
     }
 }

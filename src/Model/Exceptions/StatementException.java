@@ -1,7 +1,7 @@
 package Model.Exceptions;
 
 public class StatementException extends Exception{
-    private String msg;
+    private final String msg;
 
     public StatementException(String msg) {
         super(msg);
@@ -10,6 +10,7 @@ public class StatementException extends Exception{
 
     public StatementException() {
         super("Statement execution failed.");
+        this.msg = "Statement execution failed.";
     }
 
     @Override

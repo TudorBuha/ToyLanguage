@@ -1,0 +1,100 @@
+2024/11/06 17:39:44
+Execution Stack:
+(int v; (v = 2; print(v)))
+Symbol Table:
+
+Output:
+
+--------------------------------------------------
+2024/11/06 17:39:44
+Execution Stack:
+int v
+(v = 2; print(v))
+Symbol Table:
+
+Output:
+
+--------------------------------------------------
+2024/11/06 17:39:44
+Execution Stack:
+(v = 2; print(v))
+Symbol Table:
+v --> 0
+Output:
+
+--------------------------------------------------
+2024/11/06 17:39:44
+Execution Stack:
+v = 2
+print(v)
+Symbol Table:
+v --> 0
+Output:
+
+--------------------------------------------------
+2024/11/06 17:39:44
+Execution Stack:
+print(v)
+Symbol Table:
+v --> 2
+Output:
+
+--------------------------------------------------
+2024/11/06 17:39:44
+Execution Stack:
+
+Symbol Table:
+v --> 2
+Output:
+2
+--------------------------------------------------
+2024/11/06 17:40:32
+Execution Stack:
+(int v; (v = 2; print(v)))
+Symbol Table:
+
+Output:
+
+--------------------------------------------------
+2024/11/06 17:40:32
+Execution Stack:
+int v
+(v = 2; print(v))
+Symbol Table:
+
+Output:
+
+--------------------------------------------------
+2024/11/06 17:40:32
+Execution Stack:
+(v = 2; print(v))
+Symbol Table:
+v --> 0
+Output:
+
+--------------------------------------------------
+2024/11/06 17:40:32
+Execution Stack:
+v = 2
+print(v)
+Symbol Table:
+v --> 0
+Output:
+
+--------------------------------------------------
+2024/11/06 17:40:32
+Execution Stack:
+print(v)
+Symbol Table:
+v --> 2
+Output:
+
+--------------------------------------------------
+2024/11/06 17:40:32
+Execution Stack:
+
+Symbol Table:
+v --> 2
+Output:
+2
+--------------------------------------------------

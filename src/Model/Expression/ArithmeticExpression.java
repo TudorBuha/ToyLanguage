@@ -10,9 +10,9 @@ import Model.Value.IntValue;
 public class ArithmeticExpression implements IExpression{
     private IExpression exp1;
     private IExpression exp2;
-    private char operation;
+    private String operation;
 
-    public ArithmeticExpression(IExpression e1, IExpression e2, char op) {
+    public ArithmeticExpression(IExpression e1, IExpression e2, String op) {
         this.exp1 = e1;
         this.exp2 = e2;
         this.operation = op;
@@ -31,13 +31,13 @@ public class ArithmeticExpression implements IExpression{
                 num1 = intVal1.getValue();
                 num2 = intVal2.getValue();
                 switch (this.operation) {
-                    case '+':
+                    case "+":
                         return new IntValue(num1 + num2);
-                    case '-':
+                    case "-":
                         return new IntValue(num1 - num2);
-                    case '*':
+                    case "*":
                         return new IntValue(num1 * num2);
-                    case '/':
+                    case "/":
                         if (num2 == 0) {
                             throw new ExpressionException("Division by zero.");
                         } else {

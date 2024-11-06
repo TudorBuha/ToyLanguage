@@ -1,7 +1,7 @@
 package Model.Exceptions;
 
 public class DictionaryException extends Exception {
-    private String msg;
+    private final String msg;
 
     public DictionaryException(String msg) {
         super(msg);
@@ -10,6 +10,7 @@ public class DictionaryException extends Exception {
 
     public DictionaryException() {
         super("Dictionary operation failed.");
+        this.msg = "Dictionary operation failed.";
     }
 
     @Override
