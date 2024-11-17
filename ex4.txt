@@ -1,4 +1,368 @@
-2024/11/06 17:42:32
+2024/11/13 16:17:54
+Execution Stack:
+(string varf; (varf = test.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))))
+Symbol Table:
+
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+string varf
+(varf = test.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))))
+Symbol Table:
+
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+(varf = test.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))))
+Symbol Table:
+varf --> 
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+varf = test.in
+(openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))
+Symbol Table:
+varf --> 
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+(openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))
+Symbol Table:
+varf --> test.in
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+openFile varf
+(int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))
+Symbol Table:
+varf --> test.in
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+(int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))
+Symbol Table:
+varf --> test.in
+Output:
+
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+int varc
+(readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))
+Symbol Table:
+varf --> test.in
+Output:
+
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+(readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+readFile varf into variable varc
+(print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+(print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))
+Symbol Table:
+varf --> test.in
+varc --> 15
+Output:
+
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+print(varc)
+(readFile varf into variable varc; (print(varc); closeFile varf))
+Symbol Table:
+varf --> test.in
+varc --> 15
+Output:
+
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+(readFile varf into variable varc; (print(varc); closeFile varf))
+Symbol Table:
+varf --> test.in
+varc --> 15
+Output:
+15
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+readFile varf into variable varc
+(print(varc); closeFile varf)
+Symbol Table:
+varf --> test.in
+varc --> 15
+Output:
+15
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+(print(varc); closeFile varf)
+Symbol Table:
+varf --> test.in
+varc --> 50
+Output:
+15
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+print(varc)
+closeFile varf
+Symbol Table:
+varf --> test.in
+varc --> 50
+Output:
+15
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+closeFile varf
+Symbol Table:
+varf --> test.in
+varc --> 50
+Output:
+15
+50
+test.in --> java.io.BufferedReader@1ed6993a
+--------------------------------------------------
+2024/11/13 16:17:54
+Execution Stack:
+
+Symbol Table:
+varf --> test.in
+varc --> 50
+Output:
+15
+50
+
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+(string varf; (varf = test.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))))
+Symbol Table:
+
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+string varf
+(varf = test.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))))
+Symbol Table:
+
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+(varf = test.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))))
+Symbol Table:
+varf --> 
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+varf = test.in
+(openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))
+Symbol Table:
+varf --> 
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+(openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))
+Symbol Table:
+varf --> test.in
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+openFile varf
+(int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))
+Symbol Table:
+varf --> test.in
+Output:
+
+
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+(int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))
+Symbol Table:
+varf --> test.in
+Output:
+
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+int varc
+(readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))
+Symbol Table:
+varf --> test.in
+Output:
+
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+(readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+readFile varf into variable varc
+(print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+(print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))
+Symbol Table:
+varf --> test.in
+varc --> 15
+Output:
+
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+print(varc)
+(readFile varf into variable varc; (print(varc); closeFile varf))
+Symbol Table:
+varf --> test.in
+varc --> 15
+Output:
+
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+(readFile varf into variable varc; (print(varc); closeFile varf))
+Symbol Table:
+varf --> test.in
+varc --> 15
+Output:
+15
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+readFile varf into variable varc
+(print(varc); closeFile varf)
+Symbol Table:
+varf --> test.in
+varc --> 15
+Output:
+15
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+(print(varc); closeFile varf)
+Symbol Table:
+varf --> test.in
+varc --> 50
+Output:
+15
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+print(varc)
+closeFile varf
+Symbol Table:
+varf --> test.in
+varc --> 50
+Output:
+15
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+closeFile varf
+Symbol Table:
+varf --> test.in
+varc --> 50
+Output:
+15
+50
+test.in --> java.io.BufferedReader@7e32c033
+--------------------------------------------------
+2024/11/13 16:18:09
+Execution Stack:
+
+Symbol Table:
+varf --> test.in
+varc --> 50
+Output:
+15
+50
+
+--------------------------------------------------
+2024/11/13 16:19:21
 Execution Stack:
 (string varf; (varf = test.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))))
 Symbol Table:
@@ -6,7 +370,7 @@ Symbol Table:
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 string varf
 (varf = test.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))))
@@ -15,7 +379,7 @@ Symbol Table:
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 (varf = test.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))))
 Symbol Table:
@@ -23,7 +387,7 @@ varf -->
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 varf = test.in
 (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))
@@ -32,7 +396,7 @@ varf -->
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))
 Symbol Table:
@@ -40,7 +404,7 @@ varf --> test.in
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 openFile varf
 (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))
@@ -49,7 +413,7 @@ varf --> test.in
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))
 Symbol Table:
@@ -57,7 +421,7 @@ varf --> test.in
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 int varc
 (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))
@@ -66,7 +430,7 @@ varf --> test.in
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))
 Symbol Table:
@@ -75,7 +439,7 @@ varc --> 0
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 readFile varf into variable varc
 (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))
@@ -85,7 +449,7 @@ varc --> 0
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))
 Symbol Table:
@@ -94,7 +458,7 @@ varc --> 15
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 print(varc)
 (readFile varf into variable varc; (print(varc); closeFile varf))
@@ -104,7 +468,7 @@ varc --> 15
 Output:
 
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 (readFile varf into variable varc; (print(varc); closeFile varf))
 Symbol Table:
@@ -113,7 +477,7 @@ varc --> 15
 Output:
 15
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 readFile varf into variable varc
 (print(varc); closeFile varf)
@@ -123,7 +487,7 @@ varc --> 15
 Output:
 15
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 (print(varc); closeFile varf)
 Symbol Table:
@@ -132,7 +496,7 @@ varc --> 50
 Output:
 15
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 print(varc)
 closeFile varf
@@ -142,7 +506,7 @@ varc --> 50
 Output:
 15
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 closeFile varf
 Symbol Table:
@@ -152,7 +516,7 @@ Output:
 15
 50
 --------------------------------------------------
-2024/11/06 17:42:32
+2024/11/13 16:19:21
 Execution Stack:
 
 Symbol Table:

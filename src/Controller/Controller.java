@@ -23,6 +23,12 @@ public class Controller {
         this.repo.addProgramState(prg);
     }
 
+    public void reinitializeProgramState() {
+        ProgramState currentProgramState = this.repo.getCurrentProgramState();
+        ProgramState newProgramState = new ProgramState(currentProgramState.getOriginalProgram());
+        this.repo.addProgramState(newProgramState);
+    }
+
     public ProgramState oneStep(ProgramState currentState) throws ControllerException, StackException, StatementException, ExpressionException, DictionaryException, FileException {
         IStack<IStatement> executionStack = currentState.getExecutionStack();
         if (executionStack.isEmpty()) {

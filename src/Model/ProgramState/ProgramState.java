@@ -27,6 +27,16 @@ public class ProgramState {
         this.executionStack.push(this.originalProgram);
     }
 
+    // new copy constructor for the original program state
+    public ProgramState(IStatement statement) {
+        this.executionStack = new MyStack<>();
+        this.symbolTable = new MyDictionary<>();
+        this.output = new MyList<>();
+        this.fileTable = new MyDictionary<>();
+        this.originalProgram = statement;
+        this.executionStack.push(statement);
+    }
+
     public MyStack<IStatement> getExecutionStack() {
         return this.executionStack;
     }
@@ -59,6 +69,8 @@ public class ProgramState {
                 "Output:\n" +
                 this.output.toString() +
                 "\n" +
+                //this.fileTable.toString() +
+                //"\n" +
                 "-".repeat(50);
     }
 }

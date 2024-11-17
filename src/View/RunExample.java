@@ -2,7 +2,8 @@ package View;
 
 import Controller.Controller;
 import Model.Exceptions.*;
-
+import Model.Statement.IStatement;
+import Repository.IRepository;
 import java.io.IOException;
 
 public class RunExample extends Command{
@@ -15,7 +16,9 @@ public class RunExample extends Command{
 
     @Override
     public void execute() {
-        try {//////////////////////////////////////
+        try {
+            // reinitialize the program state to be able to run the example again
+            this.controller.reinitializeProgramState();
             this.controller.allSteps();
         } catch (ControllerException | StatementException | ListException | StackException | ExpressionException | DictionaryException | FileException | IOException e) {
             System.out.println(e.getMessage());
