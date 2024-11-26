@@ -1,6 +1,7 @@
 package Model.Expression;
 
 import Model.ADT.IDictionary;
+import Model.ADT.IHeapTable;
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
 import Model.Value.IValue;
@@ -13,7 +14,7 @@ public class ValueExpression implements IExpression{
     }
 
     @Override
-    public IValue eval(IDictionary<String, IValue> symbolTable) throws ExpressionException, DictionaryException {
+    public IValue eval(IDictionary<String, IValue> symbolTable, IHeapTable<IValue> heapTable) throws ExpressionException, DictionaryException {
         return this.val;
     }
 

@@ -1,8 +1,10 @@
 package Model.Expression;
 
 import Model.ADT.IDictionary;
+import Model.ADT.IHeapTable;
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
+import Model.Exceptions.HeapException;
 import Model.Type.BoolType;
 import Model.Value.BoolValue;
 import Model.Value.IValue;
@@ -19,11 +21,11 @@ public class LogicExpression implements IExpression{
     }
 
     @Override
-    public IValue eval(IDictionary<String, IValue> symbolTable) throws ExpressionException, DictionaryException {
+    public IValue eval(IDictionary<String, IValue> symbolTable, IHeapTable<IValue> heapTable) throws ExpressionException, DictionaryException, HeapException {
         IValue val1, val2;
-        val1 = exp1.eval(symbolTable);
+        val1 = exp1.eval(symbolTable, heapTable);
         if (val1.getType().equals(new BoolType())) {
-            val2 = exp2.eval(symbolTable);
+            val2 = exp2.eval(symbolTable, heapTable);
             if (val2.getType().equals(new BoolType())) {
                 BoolValue boolVal1 = (BoolValue) val1;
                 BoolValue boolVal2 = (BoolValue) val2;

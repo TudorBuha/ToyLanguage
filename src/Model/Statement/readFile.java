@@ -1,9 +1,6 @@
 package Model.Statement;
 
-import Model.Exceptions.DictionaryException;
-import Model.Exceptions.ExpressionException;
-import Model.Exceptions.FileException;
-import Model.Exceptions.StatementException;
+import Model.Exceptions.*;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.IntType;
@@ -25,11 +22,11 @@ public class readFile implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, FileException {
+    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, FileException, HeapException {
         if (currentState.getSymbolTable().isDefined(this.variableName)) {
             IValue variableValue =  currentState.getSymbolTable().lookUp(this.variableName);
             if (variableValue.getType().equals(new IntType())) {
-                IValue fileName = this.expression.eval(currentState.getSymbolTable());
+                IValue fileName = this.expression.eval(currentState.getSymbolTable(), currentState.getHeapTable());
                 if (fileName.getType().equals(new StringType())) {
                     StringValue stringFileName = (StringValue) fileName;
                     BufferedReader fileDescriptor = currentState.getFileTable().lookUp(stringFileName);

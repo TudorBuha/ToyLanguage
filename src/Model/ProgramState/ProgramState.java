@@ -1,28 +1,28 @@
 package Model.ProgramState;
-import Model.ADT.MyDictionary;
-import Model.ADT.MyList;
-import Model.ADT.MyStack;
+import Model.ADT.*;
 import Model.Statement.IStatement;
 import Model.Value.IValue;
 import Model.Value.StringValue;
 
 import java.io.BufferedReader;
-import java.nio.Buffer;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class ProgramState {
-    private MyStack<IStatement> executionStack;
-    private MyDictionary<String, IValue> symbolTable;
-    private MyList<IValue> output;
-    private MyDictionary<StringValue, BufferedReader> fileTable;
+    private IStack<IStatement> executionStack;
+    private IDictionary<String, IValue> symbolTable;
+    private IList<IValue> output;
+    private IDictionary<StringValue, BufferedReader> fileTable;
+    private IHeapTable<IValue> heapTable;
     private IStatement originalProgram;
 
-    public ProgramState(MyStack<IStatement> exeStack, MyDictionary<String, IValue> symTable, MyList<IValue> out, MyDictionary<StringValue, BufferedReader> fileT, IStatement origPrg) {
+    public ProgramState(IStack<IStatement> exeStack, IDictionary<String, IValue> symTable, IList<IValue> out,
+                        IDictionary<StringValue, BufferedReader> fileTable, IHeapTable<IValue> heapTable, IStatement origPrg) {
         this.executionStack = exeStack;
         this.symbolTable = symTable;
         this.output = out;
-        this.fileTable = fileT;
+        this.fileTable = fileTable;
+        this.heapTable = heapTable;
         this.originalProgram = origPrg.deepCopy();
         this.executionStack.push(this.originalProgram);
     }
@@ -33,23 +33,26 @@ public class ProgramState {
         this.symbolTable = new MyDictionary<>();
         this.output = new MyList<>();
         this.fileTable = new MyDictionary<>();
+        this.heapTable = new MyHeapTable<>();
         this.originalProgram = statement;
         this.executionStack.push(statement);
     }
 
-    public MyStack<IStatement> getExecutionStack() {
+    public IStack<IStatement> getExecutionStack() {
         return this.executionStack;
     }
 
-    public MyDictionary<String, IValue> getSymbolTable() {
+    public IDictionary<String, IValue> getSymbolTable() {
         return this.symbolTable;
     }
 
-    public MyList<IValue> getOutput() {
+    public IList<IValue> getOutput() {
         return this.output;
     }
 
-    public MyDictionary<StringValue, BufferedReader> getFileTable() { return this.fileTable; }
+    public IDictionary<StringValue, BufferedReader> getFileTable() { return this.fileTable; }
+
+    public IHeapTable<IValue> getHeapTable() { return this.heapTable; }
 
     public IStatement getOriginalProgram() {
         return this.originalProgram;
@@ -63,14 +66,15 @@ public class ProgramState {
                 "\nExecution Stack:\n" +
                 this.executionStack.toString() +
                 "\n" +
+                "Heap:\n" +
+                this.heapTable.toString() +
+                "\n" +
                 "Symbol Table:\n" +
                 this.symbolTable.toString() +
                 "\n" +
                 "Output:\n" +
                 this.output.toString() +
                 "\n" +
-                //this.fileTable.toString() +
-                //"\n" +
                 "-".repeat(50);
     }
 }

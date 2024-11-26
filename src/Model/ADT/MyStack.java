@@ -2,8 +2,8 @@ package Model.ADT;
 
 import Model.Exceptions.StackException;
 
-import java.util.Stack;
 import java.util.ListIterator;
+import java.util.Stack;
 
 public class MyStack<T> implements IStack<T>{
     private Stack<T> elems;

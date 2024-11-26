@@ -1,182 +1,200 @@
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 (string varf; (varf = test_empty.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))))
+Heap:
+
 Symbol Table:
 
 Output:
 
-
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 string varf
 (varf = test_empty.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))))
+Heap:
+
 Symbol Table:
 
 Output:
 
-
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 (varf = test_empty.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))))
+Heap:
+
 Symbol Table:
 varf --> 
 Output:
 
-
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 varf = test_empty.in
 (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))
+Heap:
+
 Symbol Table:
 varf --> 
 Output:
 
-
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 Output:
 
-
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 openFile varf
 (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 Output:
 
-
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 Output:
 
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 int varc
 (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 Output:
 
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 varc --> 0
 Output:
 
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 readFile varf into variable varc
 (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 varc --> 0
 Output:
 
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 varc --> 0
 Output:
 
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 print(varc)
 (readFile varf into variable varc; (print(varc); closeFile varf))
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 varc --> 0
 Output:
 
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 (readFile varf into variable varc; (print(varc); closeFile varf))
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 varc --> 0
 Output:
 0
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 readFile varf into variable varc
 (print(varc); closeFile varf)
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 varc --> 0
 Output:
 0
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 (print(varc); closeFile varf)
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 varc --> 0
 Output:
 0
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 print(varc)
 closeFile varf
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 varc --> 0
 Output:
 0
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 closeFile varf
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 varc --> 0
 Output:
 0
 0
-test_empty.in --> java.io.BufferedReader@7ab2bfe1
 --------------------------------------------------
-2024/11/13 16:18:20
+2024/11/26 15:44:09
 Execution Stack:
 
+Heap:
+
 Symbol Table:
 varf --> test_empty.in
 varc --> 0
 Output:
 0
 0
-
 --------------------------------------------------

@@ -2,6 +2,7 @@ package Model.Statement;
 
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
+import Model.Exceptions.HeapException;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Value.IValue;
@@ -14,8 +15,8 @@ public class PrintStatement implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws ExpressionException, DictionaryException {
-        IValue expressionValue = this.expression.eval(currentState.getSymbolTable());
+    public ProgramState execute(ProgramState currentState) throws ExpressionException, DictionaryException, HeapException {
+        IValue expressionValue = this.expression.eval(currentState.getSymbolTable(), currentState.getHeapTable());
         currentState.getOutput().add(expressionValue);
         return currentState;
     }

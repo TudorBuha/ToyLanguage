@@ -1,0 +1,122 @@
+2024/11/26 15:44:08
+Execution Stack:
+(bool a; (int v; (a = true; (IF (a) THEN (v = 2) ELSE (v = 3); print(v)))))
+Heap:
+
+Symbol Table:
+
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:08
+Execution Stack:
+bool a
+(int v; (a = true; (IF (a) THEN (v = 2) ELSE (v = 3); print(v))))
+Heap:
+
+Symbol Table:
+
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:08
+Execution Stack:
+(int v; (a = true; (IF (a) THEN (v = 2) ELSE (v = 3); print(v))))
+Heap:
+
+Symbol Table:
+a --> false
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:08
+Execution Stack:
+int v
+(a = true; (IF (a) THEN (v = 2) ELSE (v = 3); print(v)))
+Heap:
+
+Symbol Table:
+a --> false
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:08
+Execution Stack:
+(a = true; (IF (a) THEN (v = 2) ELSE (v = 3); print(v)))
+Heap:
+
+Symbol Table:
+a --> false
+v --> 0
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:08
+Execution Stack:
+a = true
+(IF (a) THEN (v = 2) ELSE (v = 3); print(v))
+Heap:
+
+Symbol Table:
+a --> false
+v --> 0
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:08
+Execution Stack:
+(IF (a) THEN (v = 2) ELSE (v = 3); print(v))
+Heap:
+
+Symbol Table:
+a --> true
+v --> 0
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:08
+Execution Stack:
+IF (a) THEN (v = 2) ELSE (v = 3)
+print(v)
+Heap:
+
+Symbol Table:
+a --> true
+v --> 0
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:08
+Execution Stack:
+v = 2
+print(v)
+Heap:
+
+Symbol Table:
+a --> true
+v --> 0
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:08
+Execution Stack:
+print(v)
+Heap:
+
+Symbol Table:
+a --> true
+v --> 2
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:08
+Execution Stack:
+
+Heap:
+
+Symbol Table:
+a --> true
+v --> 2
+Output:
+2
+--------------------------------------------------

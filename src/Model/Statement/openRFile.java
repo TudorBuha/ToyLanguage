@@ -1,9 +1,6 @@
 package Model.Statement;
 
-import Model.Exceptions.DictionaryException;
-import Model.Exceptions.ExpressionException;
-import Model.Exceptions.FileException;
-import Model.Exceptions.StatementException;
+import Model.Exceptions.*;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.StringType;
@@ -22,8 +19,8 @@ public class openRFile implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, FileException {
-        IValue val = this.exp.eval(currentState.getSymbolTable());
+    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, FileException, HeapException {
+        IValue val = this.exp.eval(currentState.getSymbolTable(), currentState.getHeapTable());
         if (val.getType().equals(new StringType())) {
             StringValue stringValue = (StringValue) val;
             if (currentState.getFileTable().isDefined(stringValue)) {

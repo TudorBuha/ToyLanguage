@@ -42,6 +42,11 @@ public class MyDictionary<K, V> implements IDictionary<K, V>{
     }
 
     @Override
+    public Map<K, V> getContent() {
+        return this.elems;
+    }
+
+    @Override
     public String toString() {
         StringBuilder elemsInString = new StringBuilder();
         int i = 0;

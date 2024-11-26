@@ -1,0 +1,20 @@
+2024/11/26 15:44:10
+Execution Stack:
+print(2 + 3 < 1)
+Heap:
+
+Symbol Table:
+
+Output:
+
+--------------------------------------------------
+2024/11/26 15:44:10
+Execution Stack:
+
+Heap:
+
+Symbol Table:
+
+Output:
+false
+--------------------------------------------------

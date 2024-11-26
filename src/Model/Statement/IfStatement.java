@@ -2,6 +2,7 @@ package Model.Statement;
 
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
+import Model.Exceptions.HeapException;
 import Model.Exceptions.StatementException;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
@@ -21,8 +22,8 @@ public class IfStatement implements IStatement {
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException {
-        IValue conditional = this.expression.eval(currentState.getSymbolTable());
+    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, HeapException {
+        IValue conditional = this.expression.eval(currentState.getSymbolTable(), currentState.getHeapTable());
         if (conditional.getType().equals(new BoolType())) {
             BoolValue boolConditional = (BoolValue) conditional;
             if (boolConditional.getValue()) {

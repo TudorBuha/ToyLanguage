@@ -3,12 +3,12 @@ package Model.Statement;
 import Model.ADT.IDictionary;
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
+import Model.Exceptions.HeapException;
 import Model.Exceptions.StatementException;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.IType;
 import Model.Value.IValue;
-import Model.Value.StringValue;
 
 public class AssignStatement implements IStatement{
     private String id;
@@ -20,10 +20,10 @@ public class AssignStatement implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException {
+    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, HeapException {
         IDictionary<String, IValue> symbolTable = currentState.getSymbolTable();
         if (symbolTable.isDefined(this.id)) {
-            IValue val = this.expression.eval(symbolTable);
+            IValue val = this.expression.eval(symbolTable, currentState.getHeapTable());
             IType type = symbolTable.lookUp(this.id).getType();
             if (val.getType().equals(type)) {
                 symbolTable.addKeyValuePair(this.id, val);

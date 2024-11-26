@@ -1,8 +1,12 @@
 package Repository;
+
 import Model.Exceptions.FileException;
 import Model.ProgramState.ProgramState;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Repository implements IRepository {
@@ -14,7 +18,7 @@ public class Repository implements IRepository {
         this.elems = new ArrayList<ProgramState>();
         this.elems.add(prgState);
         this.logFilePath = logFilePath;
-        this.firstTimeWriting = false;
+        this.firstTimeWriting = true;
     }
 
     @Override
