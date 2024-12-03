@@ -164,7 +164,9 @@ public class Interpreter {
         IRepository repo12 = new Repository(prg12, "ex12.txt");
         Controller controller12 = new Controller(repo12);
 
+
         TextMenu menu = new TextMenu();
+
         menu.addCommand(new ExitCommand("0", "Exit"));
         menu.addCommand(new RunExample("1", "int v; v = 2; print(x)", controller1));
         menu.addCommand(new RunExample("2", "int a; int b; a = 2 + 3 * 5; b = a + 1; print(b)", controller2));

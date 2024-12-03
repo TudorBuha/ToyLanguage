@@ -1,4 +1,4 @@
-2024/11/26 16:03:33
+2024/11/27 16:15:13
 Execution Stack:
 (Ref int v; (New(v, 20); (Ref Ref int a; (New(a, v); (New(v, 30); print(readFromHeap(readFromHeap(a))))))))
 Heap:
@@ -8,7 +8,7 @@ Symbol Table:
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:13
 Execution Stack:
 Ref int v
 (New(v, 20); (Ref Ref int a; (New(a, v); (New(v, 30); print(readFromHeap(readFromHeap(a)))))))
@@ -19,7 +19,7 @@ Symbol Table:
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:13
 Execution Stack:
 (New(v, 20); (Ref Ref int a; (New(a, v); (New(v, 30); print(readFromHeap(readFromHeap(a)))))))
 Heap:
@@ -29,7 +29,7 @@ v --> (0, int)
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:14
 Execution Stack:
 New(v, 20)
 (Ref Ref int a; (New(a, v); (New(v, 30); print(readFromHeap(readFromHeap(a))))))
@@ -40,7 +40,7 @@ v --> (0, int)
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:14
 Execution Stack:
 (Ref Ref int a; (New(a, v); (New(v, 30); print(readFromHeap(readFromHeap(a))))))
 Heap:
@@ -50,7 +50,7 @@ v --> (1, int)
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:14
 Execution Stack:
 Ref Ref int a
 (New(a, v); (New(v, 30); print(readFromHeap(readFromHeap(a)))))
@@ -61,7 +61,7 @@ v --> (1, int)
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:14
 Execution Stack:
 (New(a, v); (New(v, 30); print(readFromHeap(readFromHeap(a)))))
 Heap:
@@ -72,7 +72,7 @@ v --> (1, int)
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:14
 Execution Stack:
 New(a, v)
 (New(v, 30); print(readFromHeap(readFromHeap(a))))
@@ -84,7 +84,7 @@ v --> (1, int)
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:14
 Execution Stack:
 (New(v, 30); print(readFromHeap(readFromHeap(a))))
 Heap:
@@ -96,7 +96,7 @@ v --> (1, int)
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:14
 Execution Stack:
 New(v, 30)
 print(readFromHeap(readFromHeap(a)))
@@ -109,7 +109,7 @@ v --> (1, int)
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:14
 Execution Stack:
 print(readFromHeap(readFromHeap(a)))
 Heap:
@@ -122,7 +122,7 @@ v --> (3, int)
 Output:
 
 --------------------------------------------------
-2024/11/26 16:03:33
+2024/11/27 16:15:14
 Execution Stack:
 
 Heap:

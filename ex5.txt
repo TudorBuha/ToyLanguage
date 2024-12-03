@@ -1,4 +1,4 @@
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 (string varf; (varf = test_empty.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))))
 Heap:
@@ -8,7 +8,7 @@ Symbol Table:
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 string varf
 (varf = test_empty.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))))
@@ -19,7 +19,7 @@ Symbol Table:
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 (varf = test_empty.in; (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))))
 Heap:
@@ -29,7 +29,7 @@ varf -->
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 varf = test_empty.in
 (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))
@@ -40,7 +40,7 @@ varf -->
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 (openFile varf; (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))))
 Heap:
@@ -50,7 +50,7 @@ varf --> test_empty.in
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 openFile varf
 (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))
@@ -61,7 +61,7 @@ varf --> test_empty.in
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 (int varc; (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))))
 Heap:
@@ -71,7 +71,7 @@ varf --> test_empty.in
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 int varc
 (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))
@@ -82,7 +82,7 @@ varf --> test_empty.in
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 (readFile varf into variable varc; (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf))))
 Heap:
@@ -93,7 +93,7 @@ varc --> 0
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 readFile varf into variable varc
 (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))
@@ -105,7 +105,7 @@ varc --> 0
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 (print(varc); (readFile varf into variable varc; (print(varc); closeFile varf)))
 Heap:
@@ -116,7 +116,7 @@ varc --> 0
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 print(varc)
 (readFile varf into variable varc; (print(varc); closeFile varf))
@@ -128,7 +128,7 @@ varc --> 0
 Output:
 
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 (readFile varf into variable varc; (print(varc); closeFile varf))
 Heap:
@@ -139,7 +139,7 @@ varc --> 0
 Output:
 0
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 readFile varf into variable varc
 (print(varc); closeFile varf)
@@ -151,7 +151,7 @@ varc --> 0
 Output:
 0
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 (print(varc); closeFile varf)
 Heap:
@@ -162,7 +162,7 @@ varc --> 0
 Output:
 0
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 print(varc)
 closeFile varf
@@ -174,7 +174,7 @@ varc --> 0
 Output:
 0
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 closeFile varf
 Heap:
@@ -186,7 +186,7 @@ Output:
 0
 0
 --------------------------------------------------
-2024/11/26 15:44:09
+2024/11/26 18:03:14
 Execution Stack:
 
 Heap:

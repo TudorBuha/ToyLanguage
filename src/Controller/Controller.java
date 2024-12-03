@@ -61,7 +61,7 @@ public class Controller {
             Map<Integer, IValue> heapContent = programState.getHeapTable().getContent();
             List<Integer> symbolTableAddresses = this.getAddressesFromSymTable(programState.getSymbolTable().getContent().values());
             List<Integer> allReferencedAddresses = this.addIndirectAddresses(symbolTableAddresses, heapContent);
-            programState.getHeapTable().setContent(this.garbageCollector(allReferencedAddresses, heapContent));   // garbage collector call
+            programState.getHeapTable().setContent(this.safeGarbageCollector(allReferencedAddresses, heapContent));   // garbage collector call
 
             if (this.displayFlag) {
                 System.out.println(programState);
@@ -84,21 +84,18 @@ public class Controller {
 
     private List<Integer> addIndirectAddresses(List<Integer> addressesFromSymbolTable, Map<Integer, IValue> heap) {
         boolean change = true;
-        List<Integer> newAddressList = new ArrayList<>(addressesFromSymbolTable);   //copy of list in order to add indirections
-        // we go through heapSet again and again and each time we add to the address list new indirection level
-        // and new addresses which must NOT be deleted
+        List<Integer> newAddressList = new ArrayList<>(addressesFromSymbolTable);
         while (change) {
             List<Integer> appendingList;
             change = false;
 
             appendingList = heap.entrySet().stream()
-                    .filter(e -> e.getValue() instanceof RefValue)      // check if val in heap is RefValue, so it can have indirections
-                    .filter(e -> newAddressList.contains(e.getKey()))   // check if address list contains ref to this
-                    .map(e -> ((RefValue) e.getValue()).getAddress())   // map the reference to its address, so we can add it
-                    .filter(e -> !newAddressList.contains(e))           // check if the address list already has that reference from prev elems
-                    .collect(Collectors.toList());                      // collect to list
+                    .filter(e -> e.getValue() instanceof RefValue)
+                    .filter(e -> newAddressList.contains(e.getKey()))
+                    .map(e -> ((RefValue) e.getValue()).getAddress())
+                    .filter(e -> !newAddressList.contains(e))
+                    .collect(Collectors.toList());
             if (!appendingList.isEmpty()) {
-                // if we get here => we still have indirect references, so we have to keep checking
                 change = true;
                 newAddressList.addAll(appendingList);
             }
@@ -106,10 +103,27 @@ public class Controller {
         return newAddressList;
     }
 
-    private Map<Integer, IValue> garbageCollector(List<Integer> referencedAddresses, Map<Integer, IValue> heap) {
+    private Map<Integer, IValue> garbageCollector(List<Integer> referencedAddresses, Map<Integer, IValue> heap) { // unsafe
         return heap.entrySet().stream()
                 .filter(e -> referencedAddresses.contains(e.getKey()))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    private Map<Integer, IValue> safeGarbageCollector(List<Integer> referencedAddresses, Map<Integer, IValue> heap) throws HeapException {
+        Map<Integer, IValue> filteredHeap = heap.entrySet().stream()
+                .filter(e -> referencedAddresses.contains(e.getKey()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        for (Map.Entry<Integer, IValue> entry : filteredHeap.entrySet()) {
+            IValue value = entry.getValue();
+            if (value instanceof RefValue refValue) {
+                int address = refValue.getAddress();
+                if(!filteredHeap.containsKey(address)) {
+                    throw new HeapException("ERROR: Detected dangling reference. Address " + address + " is not in the heap.");
+                }
+            }
+        }
+        return filteredHeap;
     }
 
     void turnDisplayFlagOn() {
