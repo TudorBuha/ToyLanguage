@@ -10,4 +10,5 @@ public interface IDictionary<K, V> {
     V removeByKey(K key) throws DictionaryException;
     boolean isDefined(K key);
     Map<K, V> getContent();
+    void setContent(Map<K, V> newContent);
 }

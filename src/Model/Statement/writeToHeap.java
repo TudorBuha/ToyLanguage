@@ -17,7 +17,7 @@ public class writeToHeap implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, FileException, HeapException {
+    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, HeapException {
         if (!currentState.getSymbolTable().isDefined(this.variableName)) {
             throw new StatementException("ERROR: The given variable(" + this.variableName + ") is not defined in the symbol table.");
         }
@@ -34,7 +34,7 @@ public class writeToHeap implements IStatement{
             throw new StatementException("ERROR: The type of the given expression(" + this.expression.toString() + ") does not match with the location type.");
         }
         currentState.getHeapTable().updateHeapEntry(refValue.getAddress(), expressionValue);
-        return currentState;
+        return null;
     }
 
     @Override

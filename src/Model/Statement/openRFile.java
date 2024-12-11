@@ -19,7 +19,7 @@ public class openRFile implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, FileException, HeapException {
+    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, HeapException {
         IValue val = this.exp.eval(currentState.getSymbolTable(), currentState.getHeapTable());
         if (val.getType().equals(new StringType())) {
             StringValue stringValue = (StringValue) val;
@@ -30,13 +30,13 @@ public class openRFile implements IStatement{
                 BufferedReader fileDescriptor = new BufferedReader(new FileReader(stringValue.getValue()));
                 currentState.getFileTable().addKeyValuePair(stringValue, fileDescriptor);
             } catch (FileNotFoundException e) {
-                throw new FileException("The given file (" + stringValue.getValue() + ") was not found");
+                throw new StatementException("The given file (" + stringValue.getValue() + ") was not found");
             }
         }
         else {
             throw new StatementException("The given expression is not evaluated to a string");
         }
-        return currentState;
+        return null;
     }
 
     @Override

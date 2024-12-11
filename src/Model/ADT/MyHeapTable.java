@@ -15,14 +15,14 @@ public class MyHeapTable<V> implements IHeapTable<V>{
     }
 
     @Override
-    public int addNewHeapEntry(V value) {
+    public synchronized int addNewHeapEntry(V value) {
         this.elems.put(this.nextFreeLocation, value);
         this.nextFreeLocation = this.nextFreeLocation + 1;
         return this.nextFreeLocation - 1;   // returns the address on which the value was stored
     }
 
     @Override
-    public V getHeapValue(int address) throws HeapException {
+    public synchronized V getHeapValue(int address) throws HeapException {
         if (!this.elems.containsKey(address)) {
             throw new HeapException("ERROR: Could not return heap value. The given address is not a key in the heap table.");
         }
@@ -32,7 +32,7 @@ public class MyHeapTable<V> implements IHeapTable<V>{
     }
 
     @Override
-    public void updateHeapEntry(int address, V newValue) throws HeapException {
+    public synchronized void updateHeapEntry(int address, V newValue) throws HeapException {
         if (!this.elems.containsKey(address)) {
             throw new HeapException("ERROR: Could not update heap entry. The given address is not a key in the heap table");
         }
@@ -42,23 +42,23 @@ public class MyHeapTable<V> implements IHeapTable<V>{
     }
 
     @Override
-    public boolean isDefined(int address) {
+    public synchronized boolean isDefined(int address) {
         return this.elems.containsKey(address);
     }
 
     @Override
-    public void setContent(Map<Integer, V> newContent) {
+    public synchronized void setContent(Map<Integer, V> newContent) {
         this.elems.clear();
         this.elems.putAll(newContent);
     }
 
     @Override
-    public Map<Integer, V> getContent() {
+    public synchronized Map<Integer, V> getContent() {
         return this.elems;
     }
 
     @Override
-    public String toString() {
+    public synchronized String toString() {
         StringBuilder elemsInString = new StringBuilder();
         int i = 0;
         for (Map.Entry<Integer, V> entry: this.elems.entrySet()) {

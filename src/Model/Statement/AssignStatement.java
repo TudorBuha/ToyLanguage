@@ -33,7 +33,7 @@ public class AssignStatement implements IStatement{
         } else {
             throw new StatementException("Variable " + id + " was not previously declared.");
         }
-        return currentState;
+        return null;
     }
 
     @Override

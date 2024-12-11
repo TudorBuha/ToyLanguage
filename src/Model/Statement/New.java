@@ -17,7 +17,7 @@ public class New implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, FileException, HeapException {
+    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, HeapException {
         if (!currentState.getSymbolTable().isDefined(this.variableName)) {
             throw new StatementException("ERROR: The given variable(" + this.variableName + ") is not defined in the symbol table.");
         }
@@ -32,7 +32,7 @@ public class New implements IStatement{
         }
         int addressUsed = currentState.getHeapTable().addNewHeapEntry(expressionValue);
         currentState.getSymbolTable().addKeyValuePair(this.variableName, new RefValue(addressUsed, refValue.getLocationType()));
-        return currentState;
+        return null;
     }
 
     @Override

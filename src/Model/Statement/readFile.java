@@ -22,7 +22,7 @@ public class readFile implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, FileException, HeapException {
+    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, HeapException {
         if (currentState.getSymbolTable().isDefined(this.variableName)) {
             IValue variableValue =  currentState.getSymbolTable().lookUp(this.variableName);
             if (variableValue.getType().equals(new IntType())) {
@@ -39,7 +39,7 @@ public class readFile implements IStatement{
                             currentState.getSymbolTable().addKeyValuePair(this.variableName, new IntType().getDefaultValue());
                         }
                     } catch (IOException e) {
-                        throw new FileException("Failed to read line from the given file.");
+                        throw new StatementException("Failed to read line from the given file.");
                     }
                 }
                 else {
@@ -54,7 +54,7 @@ public class readFile implements IStatement{
             throw new DictionaryException("The given variable (" + this.variableName + ") is not defined in the symbol table.");
         }
 
-        return currentState;
+        return null;
     }
 
     @Override

@@ -17,7 +17,7 @@ public class WhileStatement implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, FileException, HeapException {
+    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, HeapException {
         IValue conditional = this.expression.eval(currentState.getSymbolTable(), currentState.getHeapTable());
         if (!conditional.getType().equals(new BoolType())) {
             throw new StatementException("ERROR: The given while conditional expression(" + this.expression.toString() + ") is not a boolean.");
@@ -27,7 +27,7 @@ public class WhileStatement implements IStatement{
             currentState.getExecutionStack().push(this);
             currentState.getExecutionStack().push(this.statement);
         }
-        return currentState;
+        return null;
     }
 
     @Override

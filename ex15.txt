@@ -1,0 +1,572 @@
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(string varf; (varf = test.in; (openFile varf; (fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf)))))))
+Heap:
+
+Symbol Table:
+
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+string varf
+(varf = test.in; (openFile varf; (fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf))))))
+Heap:
+
+Symbol Table:
+
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+string varf
+(varf = test.in; (openFile varf; (fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf))))))
+Heap:
+
+Symbol Table:
+
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(varf = test.in; (openFile varf; (fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf))))))
+Heap:
+
+Symbol Table:
+varf --> 
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(varf = test.in; (openFile varf; (fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf))))))
+Heap:
+
+Symbol Table:
+varf --> 
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+varf = test.in
+(openFile varf; (fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf)))))
+Heap:
+
+Symbol Table:
+varf --> 
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+varf = test.in
+(openFile varf; (fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf)))))
+Heap:
+
+Symbol Table:
+varf --> 
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(openFile varf; (fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf)))))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(openFile varf; (fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf)))))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+openFile varf
+(fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf))))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+openFile varf
+(fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf))))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf))))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(fork((int varc; (readFile varf into variable varc; print(varc)))); (int varc; (readFile varf into variable varc; (print(varc); closeFile varf))))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+fork((int varc; (readFile varf into variable varc; print(varc))))
+(int varc; (readFile varf into variable varc; (print(varc); closeFile varf)))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+fork((int varc; (readFile varf into variable varc; print(varc))))
+(int varc; (readFile varf into variable varc; (print(varc); closeFile varf)))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(int varc; (readFile varf into variable varc; (print(varc); closeFile varf)))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+(int varc; (readFile varf into variable varc; print(varc)))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(int varc; (readFile varf into variable varc; (print(varc); closeFile varf)))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+(int varc; (readFile varf into variable varc; print(varc)))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+int varc
+(readFile varf into variable varc; (print(varc); closeFile varf))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+int varc
+(readFile varf into variable varc; print(varc))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+int varc
+(readFile varf into variable varc; (print(varc); closeFile varf))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+int varc
+(readFile varf into variable varc; print(varc))
+Heap:
+
+Symbol Table:
+varf --> test.in
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(readFile varf into variable varc; (print(varc); closeFile varf))
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+(readFile varf into variable varc; print(varc))
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(readFile varf into variable varc; (print(varc); closeFile varf))
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+(readFile varf into variable varc; print(varc))
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+readFile varf into variable varc
+(print(varc); closeFile varf)
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+readFile varf into variable varc
+print(varc)
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+readFile varf into variable varc
+(print(varc); closeFile varf)
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+readFile varf into variable varc
+print(varc)
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 0
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(print(varc); closeFile varf)
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 10
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+print(varc)
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 20
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+(print(varc); closeFile varf)
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 10
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+print(varc)
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 20
+Output:
+
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+print(varc)
+closeFile varf
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 10
+Output:
+20
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 16
+2024/12/11 17:27:53
+Execution Stack:
+
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 20
+Output:
+20
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+print(varc)
+closeFile varf
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 10
+Output:
+20
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+closeFile varf
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 10
+Output:
+20
+10
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+closeFile varf
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 10
+Output:
+20
+10
+File Table:
+test.in --> java.io.BufferedReader@76ccd017
+--------------------------------------------------
+ID: 15
+2024/12/11 17:27:53
+Execution Stack:
+
+Heap:
+
+Symbol Table:
+varf --> test.in
+varc --> 10
+Output:
+20
+10
+File Table:
+
+--------------------------------------------------

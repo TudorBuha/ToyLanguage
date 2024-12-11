@@ -1,5 +1,7 @@
 package Model.ProgramState;
+
 import Model.ADT.*;
+import Model.Exceptions.*;
 import Model.Statement.IStatement;
 import Model.Value.IValue;
 import Model.Value.StringValue;
@@ -8,6 +10,7 @@ import java.io.BufferedReader;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+
 public class ProgramState {
     private IStack<IStatement> executionStack;
     private IDictionary<String, IValue> symbolTable;
@@ -15,6 +18,8 @@ public class ProgramState {
     private IDictionary<StringValue, BufferedReader> fileTable;
     private IHeapTable<IValue> heapTable;
     private IStatement originalProgram;
+    private int id;
+    private static int baseId;
 
     public ProgramState(IStack<IStatement> exeStack, IDictionary<String, IValue> symTable, IList<IValue> out,
                         IDictionary<StringValue, BufferedReader> fileTable, IHeapTable<IValue> heapTable, IStatement origPrg) {
@@ -25,8 +30,10 @@ public class ProgramState {
         this.heapTable = heapTable;
         this.originalProgram = origPrg.deepCopy();
         this.executionStack.push(this.originalProgram);
+        this.incrementBaseId();
+        this.id = this.getBaseId();
     }
-
+/*
     // new copy constructor for the original program state
     public ProgramState(IStatement statement) {
         this.executionStack = new MyStack<>();
@@ -36,6 +43,18 @@ public class ProgramState {
         this.heapTable = new MyHeapTable<>();
         this.originalProgram = statement;
         this.executionStack.push(statement);
+        this.incrementBaseId();
+        this.id = this.getBaseId();
+    }
+
+ */
+
+    private synchronized int getBaseId() {
+        return baseId;
+    }
+
+    private synchronized void incrementBaseId() {
+        baseId = baseId + 1;
     }
 
     public IStack<IStatement> getExecutionStack() {
@@ -58,23 +77,35 @@ public class ProgramState {
         return this.originalProgram;
     }
 
+    public boolean isNotCompleted() {
+        return !this.executionStack.isEmpty();
+    }
+
+    public ProgramState oneStep() throws ControllerException, StackException, StatementException, HeapException, ExpressionException, DictionaryException {
+        IStack<IStatement> executionStack = this.executionStack;
+        if (executionStack.isEmpty()) {
+            throw new ControllerException("Program state's execution stack is empty.");
+        }
+        IStatement topStatement = executionStack.pop();
+        return topStatement.execute(this);
+    }
+
     @Override
     public String toString() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
-        return dtf.format(now) +
-                "\nExecution Stack:\n" +
-                this.executionStack.toString() +
-                "\n" +
+        return "ID: " + this.id + "\n" +
+                dtf.format(now) + "\n" +
+                "Execution Stack:\n" +
+                this.executionStack.toString() + "\n" +
                 "Heap:\n" +
-                this.heapTable.toString() +
-                "\n" +
+                this.heapTable.toString() + "\n" +
                 "Symbol Table:\n" +
-                this.symbolTable.toString() +
-                "\n" +
+                this.symbolTable.toString() + "\n" +
                 "Output:\n" +
-                this.output.toString() +
-                "\n" +
+                this.output.toString() + "\n" +
+                "File Table:\n" +
+                this.fileTable.toString() + "\n" +
                 "-".repeat(50);
     }
 }

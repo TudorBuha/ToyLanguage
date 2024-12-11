@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Repository implements IRepository {
     private ArrayList<ProgramState> elems;
@@ -22,8 +23,14 @@ public class Repository implements IRepository {
     }
 
     @Override
-    public ProgramState getCurrentProgramState() {
-        return this.elems.get(0);
+    public List<ProgramState> getPrgList() {
+        return this.elems;
+    }
+
+    @Override
+    public void setPrgList(List<ProgramState> newProgramStates) {
+        this.elems.clear();
+        this.elems.addAll(newProgramStates);
     }
 
     @Override
@@ -32,7 +39,7 @@ public class Repository implements IRepository {
     }
 
     @Override
-    public void logPrgStateExec() throws FileException {
+    public void logPrgStateExec(ProgramState programState) throws FileException {
         PrintWriter logFile;
         try {
             if (this.firstTimeWriting) {
@@ -46,8 +53,11 @@ public class Repository implements IRepository {
         catch (IOException e) {
             throw new FileException("The file cannot be opened/created/doesn't exist.");
         }
-        logFile.println(this.getCurrentProgramState().toString());
+        logFile.println(programState.toString());
         logFile.flush();
         logFile.close();
+
+        //also print the program state to the console
+        System.out.println(programState.toString());
     }
 }

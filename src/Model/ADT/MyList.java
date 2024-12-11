@@ -12,17 +12,17 @@ public class MyList<T> implements IList<T>{
     }
 
     @Override
-    public void add(T newElem) {
+    public synchronized void add(T newElem) {
         this.elems.add(newElem);
     }
 
     @Override
-    public ArrayList<T> getElems() {
+    public synchronized ArrayList<T> getElems() {
         return this.elems;
     }
 
     @Override
-    public T getElemAtIndex(int index) throws ListException {
+    public synchronized T getElemAtIndex(int index) throws ListException {
         if (index >= this.elems.size()) {
             throw new ListException("Failed to get element: the given index is too large.");
         }
@@ -30,12 +30,12 @@ public class MyList<T> implements IList<T>{
     }
 
     @Override
-    public int size() {
+    public synchronized int size() {
         return this.elems.size();
     }
 
     @Override
-    public String toString() {
+    public synchronized String toString() {
         StringBuilder elemsInString = new StringBuilder();
         for (int i = 0; i < this.elems.size(); i++) {
             elemsInString.append(this.elems.get(i).toString());

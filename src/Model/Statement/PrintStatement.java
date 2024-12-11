@@ -18,7 +18,7 @@ public class PrintStatement implements IStatement{
     public ProgramState execute(ProgramState currentState) throws ExpressionException, DictionaryException, HeapException {
         IValue expressionValue = this.expression.eval(currentState.getSymbolTable(), currentState.getHeapTable());
         currentState.getOutput().add(expressionValue);
-        return currentState;
+        return null;
     }
 
     @Override

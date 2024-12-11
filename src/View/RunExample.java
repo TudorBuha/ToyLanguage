@@ -16,11 +16,9 @@ public class RunExample extends Command{
     @Override
     public void execute() {
         try {
-            // reinitialize the program state to be able to run the example again
-            this.controller.reinitializeProgramState();
+            //this.controller.reinitializeProgramState();
             this.controller.allSteps();
-        } catch (HeapException | ControllerException | StatementException | ListException | StackException |
-                 ExpressionException | DictionaryException | FileException | IOException e) {
+        } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
     }

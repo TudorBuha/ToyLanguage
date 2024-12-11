@@ -1,4 +1,5 @@
-2024/11/26 18:03:09
+ID: 2
+2024/12/11 17:27:50
 Execution Stack:
 (int a; (int b; (a = 2 + 3 * 5; (b = a + 1; print(b)))))
 Heap:
@@ -7,8 +8,11 @@ Symbol Table:
 
 Output:
 
+File Table:
+
 --------------------------------------------------
-2024/11/26 18:03:09
+ID: 2
+2024/12/11 17:27:50
 Execution Stack:
 int a
 (int b; (a = 2 + 3 * 5; (b = a + 1; print(b))))
@@ -18,8 +22,25 @@ Symbol Table:
 
 Output:
 
+File Table:
+
 --------------------------------------------------
-2024/11/26 18:03:09
+ID: 2
+2024/12/11 17:27:50
+Execution Stack:
+int a
+(int b; (a = 2 + 3 * 5; (b = a + 1; print(b))))
+Heap:
+
+Symbol Table:
+
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 2
+2024/12/11 17:27:50
 Execution Stack:
 (int b; (a = 2 + 3 * 5; (b = a + 1; print(b))))
 Heap:
@@ -28,8 +49,24 @@ Symbol Table:
 a --> 0
 Output:
 
+File Table:
+
 --------------------------------------------------
-2024/11/26 18:03:09
+ID: 2
+2024/12/11 17:27:50
+Execution Stack:
+(int b; (a = 2 + 3 * 5; (b = a + 1; print(b))))
+Heap:
+
+Symbol Table:
+a --> 0
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 2
+2024/12/11 17:27:50
 Execution Stack:
 int b
 (a = 2 + 3 * 5; (b = a + 1; print(b)))
@@ -39,8 +76,25 @@ Symbol Table:
 a --> 0
 Output:
 
+File Table:
+
 --------------------------------------------------
-2024/11/26 18:03:09
+ID: 2
+2024/12/11 17:27:50
+Execution Stack:
+int b
+(a = 2 + 3 * 5; (b = a + 1; print(b)))
+Heap:
+
+Symbol Table:
+a --> 0
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 2
+2024/12/11 17:27:50
 Execution Stack:
 (a = 2 + 3 * 5; (b = a + 1; print(b)))
 Heap:
@@ -50,8 +104,25 @@ a --> 0
 b --> 0
 Output:
 
+File Table:
+
 --------------------------------------------------
-2024/11/26 18:03:09
+ID: 2
+2024/12/11 17:27:50
+Execution Stack:
+(a = 2 + 3 * 5; (b = a + 1; print(b)))
+Heap:
+
+Symbol Table:
+a --> 0
+b --> 0
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 2
+2024/12/11 17:27:50
 Execution Stack:
 a = 2 + 3 * 5
 (b = a + 1; print(b))
@@ -62,8 +133,26 @@ a --> 0
 b --> 0
 Output:
 
+File Table:
+
 --------------------------------------------------
-2024/11/26 18:03:09
+ID: 2
+2024/12/11 17:27:50
+Execution Stack:
+a = 2 + 3 * 5
+(b = a + 1; print(b))
+Heap:
+
+Symbol Table:
+a --> 0
+b --> 0
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 2
+2024/12/11 17:27:50
 Execution Stack:
 (b = a + 1; print(b))
 Heap:
@@ -73,8 +162,25 @@ a --> 17
 b --> 0
 Output:
 
+File Table:
+
 --------------------------------------------------
-2024/11/26 18:03:09
+ID: 2
+2024/12/11 17:27:50
+Execution Stack:
+(b = a + 1; print(b))
+Heap:
+
+Symbol Table:
+a --> 17
+b --> 0
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 2
+2024/12/11 17:27:50
 Execution Stack:
 b = a + 1
 print(b)
@@ -85,8 +191,26 @@ a --> 17
 b --> 0
 Output:
 
+File Table:
+
 --------------------------------------------------
-2024/11/26 18:03:09
+ID: 2
+2024/12/11 17:27:50
+Execution Stack:
+b = a + 1
+print(b)
+Heap:
+
+Symbol Table:
+a --> 17
+b --> 0
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 2
+2024/12/11 17:27:50
 Execution Stack:
 print(b)
 Heap:
@@ -96,8 +220,25 @@ a --> 17
 b --> 18
 Output:
 
+File Table:
+
 --------------------------------------------------
-2024/11/26 18:03:09
+ID: 2
+2024/12/11 17:27:50
+Execution Stack:
+print(b)
+Heap:
+
+Symbol Table:
+a --> 17
+b --> 18
+Output:
+
+File Table:
+
+--------------------------------------------------
+ID: 2
+2024/12/11 17:27:50
 Execution Stack:
 
 Heap:
@@ -107,4 +248,6 @@ a --> 17
 b --> 18
 Output:
 18
+File Table:
+
 --------------------------------------------------

@@ -11,7 +11,7 @@ public class NoOperationStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException {
-        return currentState;
+        return null;
     }
 
     @Override

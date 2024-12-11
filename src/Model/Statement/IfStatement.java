@@ -22,7 +22,7 @@ public class IfStatement implements IStatement {
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, HeapException {
+    public ProgramState execute(ProgramState currentState) throws StatementException, HeapException, ExpressionException, DictionaryException {
         IValue conditional = this.expression.eval(currentState.getSymbolTable(), currentState.getHeapTable());
         if (conditional.getType().equals(new BoolType())) {
             BoolValue boolConditional = (BoolValue) conditional;
@@ -34,7 +34,7 @@ public class IfStatement implements IStatement {
         } else {
             throw new StatementException("Conditional expression is not a boolean.");
         }
-        return currentState;
+        return null; // return null because the program state has been modified
     }
 
     @Override

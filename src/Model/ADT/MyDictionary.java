@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MyDictionary<K, V> implements IDictionary<K, V>{
-    private HashMap<K, V> elems;
+    protected HashMap<K, V> elems;
 
     public MyDictionary() {
         this.elems = new HashMap<K, V>();
@@ -44,6 +44,12 @@ public class MyDictionary<K, V> implements IDictionary<K, V>{
     @Override
     public Map<K, V> getContent() {
         return this.elems;
+    }
+
+    @Override
+    public void setContent(Map<K, V> newContent) {
+        this.elems.clear();
+        this.elems.putAll(newContent);
     }
 
     @Override

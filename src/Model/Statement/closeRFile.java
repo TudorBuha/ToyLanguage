@@ -18,7 +18,7 @@ public class closeRFile implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, FileException, HeapException {
+    public ProgramState execute(ProgramState currentState) throws StatementException, ExpressionException, DictionaryException, HeapException {
         IValue val =  this.expression.eval(currentState.getSymbolTable(), currentState.getHeapTable());
         if (val.getType().equals(new StringType())) {
             StringValue stringValue = (StringValue) val;
@@ -26,14 +26,14 @@ public class closeRFile implements IStatement{
             try {
                 fileDescriptor.close();
             } catch (IOException e) {
-                throw new FileException("Failed to close the file " + stringValue);
+                throw new StatementException("Failed to close the file " + stringValue);
             }
             currentState.getFileTable().removeByKey(stringValue);
         }
         else {
             throw new StatementException("The given expression (" + this.expression.toString() + ") is not a String");
         }
-        return currentState;
+        return null;
     }
 
     @Override
