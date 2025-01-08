@@ -8,7 +8,7 @@ import Model.Value.IValue;
 import Model.Value.RefValue;
 import Repository.IRepository;
 import Model.*;
-//import Model.Statement.IStatement;
+import Model.Statement.IStatement;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -21,7 +21,7 @@ public class Controller {
     public Controller(IRepository repo) {
         try{
             this.repo = repo;
-            //typecheck();
+            typecheck();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
