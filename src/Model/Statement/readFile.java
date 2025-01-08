@@ -1,8 +1,10 @@
 package Model.Statement;
 
+import Model.ADT.IDictionary;
 import Model.Exceptions.*;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
+import Model.Type.IType;
 import Model.Type.IntType;
 import Model.Type.StringType;
 import Model.Value.IValue;
@@ -65,5 +67,22 @@ public class readFile implements IStatement{
     @Override
     public IStatement deepCopy() {
         return new readFile(this.expression, this.variableName);
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementException, ExpressionException, DictionaryException {
+        IType typeExp = this.expression.typeCheck(typeEnv);
+        if (!typeExp.equals(new StringType())) {
+            throw new StatementException("readFile statement: expression is not a string.");
+        }
+        if (typeEnv.isDefined(this.variableName)) {
+            if (!typeEnv.lookUp(this.variableName).equals(new IntType())) {
+                throw new StatementException("readFile statement: variable is not an integer.");
+            }
+        }
+        else {
+            throw new StatementException("readFile statement: variable is not defined.");
+        }
+        return typeEnv;
     }
 }

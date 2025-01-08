@@ -11,4 +11,5 @@ public interface IDictionary<K, V> {
     boolean isDefined(K key);
     Map<K, V> getContent();
     void setContent(Map<K, V> newContent);
+    IDictionary<K,V> shallowCopy();
 }

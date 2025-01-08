@@ -1,10 +1,14 @@
 package Controller;
 
+import Model.ADT.MyDictionary;
 import Model.Exceptions.*;
 import Model.ProgramState.ProgramState;
+import Model.Type.IType;
 import Model.Value.IValue;
 import Model.Value.RefValue;
 import Repository.IRepository;
+import Model.*;
+//import Model.Statement.IStatement;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -15,33 +19,23 @@ public class Controller {
     private ExecutorService executor;
 
     public Controller(IRepository repo) {
-        this.repo = repo;
+        try{
+            this.repo = repo;
+            //typecheck();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void typecheck() throws ControllerException, StatementException, ExpressionException, DictionaryException {
+        ProgramState prg = repo.getPrgList().get(0);
+        MyDictionary<String, IType> typeEnv = new MyDictionary<>();
+        prg.getOriginalProgram().typeCheck(typeEnv);
     }
 
     public void addProgramState(ProgramState prg) {
         this.repo.addProgramState(prg);
     }
-
-    /*
-    public void reinitializeProgramState() {
-        ProgramState currentProgramState = this.repo.getCurrentProgramState();
-        ProgramState newProgramState = new ProgramState(currentProgramState.getOriginalProgram());
-        this.repo.addProgramState(newProgramState);
-    }
-    */
-
-/*
-    public void reinitializeProgramState() {
-        List<ProgramState> prgList = this.repo.getPrgList();
-        List<ProgramState> newPrgList = new ArrayList<>();
-        for (ProgramState prg : prgList) {
-            ProgramState newPrg = new ProgramState(prg.getOriginalProgram());
-            newPrgList.add(newPrg);
-        }
-        this.repo.setPrgList(newPrgList);
-    }
-
- */
 
     List<ProgramState> removeCompletedPrg(List<ProgramState> inProgramList) {
         return inProgramList.stream()
@@ -50,15 +44,8 @@ public class Controller {
     }
 
     public void oneStepForAllPrg(List<ProgramState> programStatesList) throws InterruptedException {
-        programStatesList.forEach(prg -> {
-            try {
-                this.repo.logPrgStateExec(prg);
-            } catch (FileException e) {
-                e.printStackTrace();
-            }
-        });
         List<Callable<ProgramState>> callList = programStatesList.stream()
-                .map((ProgramState p) -> (Callable<ProgramState>)(p::oneStep))      // return p.oneStep()
+                .map((ProgramState p) -> (Callable<ProgramState>)(p::oneStep))
                 .collect(Collectors.toList());
         List<ProgramState> newProgramStatesList = this.executor.invokeAll(callList).stream()
                 .map(future -> {
@@ -69,11 +56,12 @@ public class Controller {
                         return null;
                     }
                 })
-                .filter(Objects::nonNull)     // p != null
+                .filter(Objects::nonNull)
                 .collect(Collectors.toList());
         programStatesList.addAll(newProgramStatesList);
         programStatesList.forEach(prg -> {
             try {
+                System.out.println(prg);
                 repo.logPrgStateExec(prg);
             } catch (FileException e) {
                 e.printStackTrace();
@@ -81,29 +69,6 @@ public class Controller {
         });
         this.repo.setPrgList(programStatesList);
     }
-
-    /*
-    public ProgramState oneStep(ProgramState currentState) throws ControllerException, StackException, StatementException, ExpressionException, DictionaryException, FileException, HeapException {
-        IStack<IStatement> executionStack = currentState.getExecutionStack();
-        if (executionStack.isEmpty()) {
-            throw new ControllerException("Program state's execution stack is empty.");
-        }
-        IStatement topStatement = executionStack.pop();
-        return topStatement.execute(currentState);
-    }
-     */
-
-    /*
-    public void allSteps() throws ControllerException, StatementException, StackException, ExpressionException, DictionaryException, ListException, FileException, IOException, HeapException {
-        ProgramState programState = this.repo.getCurrentProgramState();
-        if (programState.getExecutionStack().isEmpty()) {
-            throw new ControllerException("ERROR: The program was already executed. The execution stack is empty.");
-        }
-        this.repo.logPrgStateExec();
-        if (this.displayFlag) {
-            System.out.println("Program execution started:");
-            System.out.print(programState + "\n");
-     */
 
     public void allSteps() throws InterruptedException {
         this.executor = Executors.newFixedThreadPool(2);
@@ -154,24 +119,6 @@ public class Controller {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-    private Map<Integer, IValue> safeGarbageCollector(List<Integer> referencedAddresses, Map<Integer, IValue> heap) throws HeapException {
-        Map<Integer, IValue> filteredHeap = heap.entrySet().stream()
-                .filter(e -> referencedAddresses.contains(e.getKey()))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
-        for (Map.Entry<Integer, IValue> entry : filteredHeap.entrySet()) {
-            IValue value = entry.getValue();
-            if (value instanceof RefValue refValue) {
-                int address = refValue.getAddress();
-                if(!filteredHeap.containsKey(address)) {
-                    throw new HeapException("ERROR: Detected dangling reference. Address " + address + " is not in the heap.");
-                }
-            }
-        }
-        return filteredHeap;
-    }
-    // conservative garbage collector
-    // it will remove from heap only the addresses that are not used in the program state
     private void conservativeGarbageCollector(List<ProgramState> prgList) {
         Map<Integer, IValue> heapContent = prgList.get(0).getHeapTable().getContent();
         List<IValue> symbolTableValues = prgList.stream().flatMap(prg -> prg.getSymbolTable().getContent().values().stream()).collect(Collectors.toList());

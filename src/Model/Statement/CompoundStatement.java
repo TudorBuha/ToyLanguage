@@ -1,7 +1,12 @@
 package Model.Statement;
 
+import Model.ADT.IDictionary;
 import Model.ADT.IStack;
+import Model.Exceptions.DictionaryException;
+import Model.Exceptions.ExpressionException;
+import Model.Exceptions.StatementException;
 import Model.ProgramState.ProgramState;
+import Model.Type.IType;
 
 public class CompoundStatement implements IStatement{
     private IStatement statement1;
@@ -28,5 +33,10 @@ public class CompoundStatement implements IStatement{
     @Override
     public String toString() {
         return "(" + this.statement1.toString() + "; " + this.statement2.toString() + ")";
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementException, ExpressionException, DictionaryException {
+        return this.statement2.typeCheck(this.statement1.typeCheck(typeEnv));
     }
 }

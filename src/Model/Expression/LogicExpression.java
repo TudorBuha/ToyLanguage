@@ -6,6 +6,7 @@ import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
 import Model.Exceptions.HeapException;
 import Model.Type.BoolType;
+import Model.Type.IType;
 import Model.Value.BoolValue;
 import Model.Value.IValue;
 
@@ -54,5 +55,21 @@ public class LogicExpression implements IExpression{
     @Override
     public String toString() {
         return this.exp1.toString() + " " + this.operation + " " + this.exp2.toString();
+    }
+
+    @Override
+    public IType typeCheck(IDictionary<String, IType> typeEnv) throws ExpressionException, DictionaryException {
+        IType type1, type2;
+        type1 = exp1.typeCheck(typeEnv);
+        type2 = exp2.typeCheck(typeEnv);
+        if (type1.equals(new BoolType())) {
+            if (type2.equals(new BoolType())) {
+                return new BoolType();
+            } else {
+                throw new ExpressionException("Second operand is not a bool.");
+            }
+        } else {
+            throw new ExpressionException("First operand is not a bool.");
+        }
     }
 }

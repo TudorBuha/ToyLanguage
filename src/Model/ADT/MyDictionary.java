@@ -69,4 +69,11 @@ public class MyDictionary<K, V> implements IDictionary<K, V>{
         }
         return elemsInString.toString();
     }
+
+    @Override
+    public IDictionary<K, V> shallowCopy() {
+        MyDictionary<K, V> newDict = new MyDictionary<K, V>();
+        newDict.setContent(this.elems);
+        return newDict;
+    }
 }

@@ -1,18 +1,4 @@
 ID: 1
-2024/12/11 17:27:49
-Execution Stack:
-(int v; (v = 2; print(v)))
-Heap:
-
-Symbol Table:
-
-Output:
-
-File Table:
-
---------------------------------------------------
-ID: 1
-2024/12/11 17:27:49
 Execution Stack:
 int v
 (v = 2; print(v))
@@ -26,21 +12,6 @@ File Table:
 
 --------------------------------------------------
 ID: 1
-2024/12/11 17:27:49
-Execution Stack:
-int v
-(v = 2; print(v))
-Heap:
-
-Symbol Table:
-
-Output:
-
-File Table:
-
---------------------------------------------------
-ID: 1
-2024/12/11 17:27:49
 Execution Stack:
 (v = 2; print(v))
 Heap:
@@ -53,20 +24,6 @@ File Table:
 
 --------------------------------------------------
 ID: 1
-2024/12/11 17:27:49
-Execution Stack:
-(v = 2; print(v))
-Heap:
-
-Symbol Table:
-v --> 0
-Output:
-
-File Table:
-
---------------------------------------------------
-ID: 1
-2024/12/11 17:27:49
 Execution Stack:
 v = 2
 print(v)
@@ -80,21 +37,6 @@ File Table:
 
 --------------------------------------------------
 ID: 1
-2024/12/11 17:27:49
-Execution Stack:
-v = 2
-print(v)
-Heap:
-
-Symbol Table:
-v --> 0
-Output:
-
-File Table:
-
---------------------------------------------------
-ID: 1
-2024/12/11 17:27:49
 Execution Stack:
 print(v)
 Heap:
@@ -107,20 +49,6 @@ File Table:
 
 --------------------------------------------------
 ID: 1
-2024/12/11 17:27:49
-Execution Stack:
-print(v)
-Heap:
-
-Symbol Table:
-v --> 2
-Output:
-
-File Table:
-
---------------------------------------------------
-ID: 1
-2024/12/11 17:27:49
 Execution Stack:
 
 Heap:

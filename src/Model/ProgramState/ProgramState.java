@@ -1,15 +1,14 @@
 package Model.ProgramState;
 
-import Model.ADT.*;
+import Model.ADT.IDictionary;
+import Model.ADT.IHeapTable;
+import Model.ADT.IList;
+import Model.ADT.IStack;
 import Model.Exceptions.*;
 import Model.Statement.IStatement;
 import Model.Value.IValue;
 import Model.Value.StringValue;
-
 import java.io.BufferedReader;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 
 public class ProgramState {
     private IStack<IStatement> executionStack;
@@ -19,7 +18,7 @@ public class ProgramState {
     private IHeapTable<IValue> heapTable;
     private IStatement originalProgram;
     private int id;
-    private static int baseId;
+    private static int baseId=0;
 
     public ProgramState(IStack<IStatement> exeStack, IDictionary<String, IValue> symTable, IList<IValue> out,
                         IDictionary<StringValue, BufferedReader> fileTable, IHeapTable<IValue> heapTable, IStatement origPrg) {
@@ -30,32 +29,17 @@ public class ProgramState {
         this.heapTable = heapTable;
         this.originalProgram = origPrg.deepCopy();
         this.executionStack.push(this.originalProgram);
-        this.incrementBaseId();
+        // this.incrementBaseId();
         this.id = this.getBaseId();
     }
-/*
-    // new copy constructor for the original program state
-    public ProgramState(IStatement statement) {
-        this.executionStack = new MyStack<>();
-        this.symbolTable = new MyDictionary<>();
-        this.output = new MyList<>();
-        this.fileTable = new MyDictionary<>();
-        this.heapTable = new MyHeapTable<>();
-        this.originalProgram = statement;
-        this.executionStack.push(statement);
-        this.incrementBaseId();
-        this.id = this.getBaseId();
-    }
-
- */
 
     private synchronized int getBaseId() {
-        return baseId;
+        return ++baseId;
     }
 
-    private synchronized void incrementBaseId() {
-        baseId = baseId + 1;
-    }
+    //  private synchronized void incrementBaseId() {
+    //  baseId = baseId + 1;
+    // }
 
     public IStack<IStatement> getExecutionStack() {
         return this.executionStack;
@@ -92,10 +76,7 @@ public class ProgramState {
 
     @Override
     public String toString() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
         return "ID: " + this.id + "\n" +
-                dtf.format(now) + "\n" +
                 "Execution Stack:\n" +
                 this.executionStack.toString() + "\n" +
                 "Heap:\n" +

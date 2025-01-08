@@ -1,5 +1,6 @@
 package Model.Statement;
 
+import Model.ADT.IDictionary;
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
 import Model.Exceptions.HeapException;
@@ -7,6 +8,7 @@ import Model.Exceptions.StatementException;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.BoolType;
+import Model.Type.IType;
 import Model.Value.BoolValue;
 import Model.Value.IValue;
 
@@ -34,7 +36,7 @@ public class IfStatement implements IStatement {
         } else {
             throw new StatementException("Conditional expression is not a boolean.");
         }
-        return null; // return null because the program state has been modified
+        return null;
     }
 
     @Override
@@ -47,5 +49,16 @@ public class IfStatement implements IStatement {
         return "IF (" + this.expression.toString() + ") " +
                 "THEN (" + this.thenStatement.toString() + ") " +
                 "ELSE (" + this.elseStatement.toString() + ")";
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementException, ExpressionException, DictionaryException {
+        IType typeExpression = this.expression.typeCheck(typeEnv);
+        if (!typeExpression.equals(new BoolType())) {
+            throw new StatementException("IF statement: Conditional expression is not a boolean.");
+        }
+        this.thenStatement.typeCheck(typeEnv.shallowCopy());
+        this.elseStatement.typeCheck(typeEnv.shallowCopy());
+        return typeEnv;
     }
 }

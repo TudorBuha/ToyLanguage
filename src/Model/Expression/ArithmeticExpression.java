@@ -5,6 +5,7 @@ import Model.ADT.IHeapTable;
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
 import Model.Exceptions.HeapException;
+import Model.Type.IType;
 import Model.Type.IntType;
 import Model.Value.IValue;
 import Model.Value.IntValue;
@@ -64,5 +65,21 @@ public class ArithmeticExpression implements IExpression{
     @Override
     public String toString() {
         return this.exp1.toString() + " " + this.operation + " " + this.exp2.toString();
+    }
+
+    @Override
+    public IType typeCheck(IDictionary<String, IType> typeEnv) throws ExpressionException, DictionaryException {
+        IType type1, type2;
+        type1 = this.exp1.typeCheck(typeEnv);
+        type2 = this.exp2.typeCheck(typeEnv);
+        if (type1.equals(new IntType())) {
+            if (type2.equals(new IntType())) {
+                return new IntType();
+            } else {
+                throw new ExpressionException("Second operand is not an integer.");
+            }
+        } else {
+            throw new ExpressionException("First operand is not an integer.");
+        }
     }
 }

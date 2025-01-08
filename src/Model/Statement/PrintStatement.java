@@ -1,10 +1,13 @@
 package Model.Statement;
 
+import Model.ADT.IDictionary;
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
 import Model.Exceptions.HeapException;
+import Model.Exceptions.StatementException;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
+import Model.Type.IType;
 import Model.Value.IValue;
 
 public class PrintStatement implements IStatement{
@@ -29,5 +32,11 @@ public class PrintStatement implements IStatement{
     @Override
     public String toString() {
         return "print(" + this.expression.toString() + ")";
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementException, ExpressionException, DictionaryException {
+        this.expression.typeCheck(typeEnv);
+        return typeEnv;
     }
 }

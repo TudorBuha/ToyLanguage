@@ -3,6 +3,8 @@ package Model.Expression;
 import Model.ADT.IDictionary;
 import Model.ADT.IHeapTable;
 import Model.Exceptions.DictionaryException;
+import Model.Exceptions.ExpressionException;
+import Model.Type.IType;
 import Model.Value.IValue;
 
 public class VariableExpression implements IExpression{
@@ -25,5 +27,10 @@ public class VariableExpression implements IExpression{
     @Override
     public String toString() {
         return this.id;
+    }
+
+    @Override
+    public IType typeCheck(IDictionary<String, IType> typeEnv) throws ExpressionException, DictionaryException {
+        return typeEnv.lookUp(this.id);
     }
 }

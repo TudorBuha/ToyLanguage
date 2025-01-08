@@ -4,6 +4,7 @@ import Model.ADT.IDictionary;
 import Model.ADT.IHeapTable;
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
+import Model.Type.IType;
 import Model.Value.IValue;
 
 public class ValueExpression implements IExpression{
@@ -26,5 +27,10 @@ public class ValueExpression implements IExpression{
     @Override
     public String toString() {
         return this.val.toString();
+    }
+
+    @Override
+    public IType typeCheck(IDictionary<String, IType> typeEnv) throws ExpressionException {
+        return this.val.getType();
     }
 }

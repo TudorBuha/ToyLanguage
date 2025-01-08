@@ -1,7 +1,9 @@
 package Model.Statement;
+import Model.ADT.IDictionary;
 import Model.Exceptions.*;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
+import Model.Type.IType;
 import Model.Type.RefType;
 import Model.Value.IValue;
 import Model.Value.RefValue;
@@ -45,5 +47,15 @@ public class writeToHeap implements IStatement{
     @Override
     public String toString() {
         return "WriteToHeap(" + this.variableName + ", " + this.expression.toString() + ")";
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementException, ExpressionException, DictionaryException {
+        IType typeVar = typeEnv.lookUp(this.variableName);
+        IType typeExp = this.expression.typeCheck(typeEnv);
+        if (!typeVar.equals(new RefType(typeExp))) {
+            throw new StatementException("WriteToHeap statement: right hand side and left hand side have different types. Declared type of variable " + this.variableName + " and type of the assigned expression do not match.");
+        }
+        return typeEnv;
     }
 }

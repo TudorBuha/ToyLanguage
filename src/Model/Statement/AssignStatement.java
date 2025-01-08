@@ -45,4 +45,14 @@ public class AssignStatement implements IStatement{
     public String toString() {
         return this.id + " = " + this.expression.toString();
     }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementException, ExpressionException, DictionaryException {
+        IType typeVar = typeEnv.lookUp(this.id);
+        IType typeExp = this.expression.typeCheck(typeEnv);
+        if (!typeVar.equals(typeExp)) {
+            throw new StatementException("Assignment: right hand side and left hand side have different types. Declared type of variable " + id + " and type of the assigned expression do not match.");
+        }
+        return typeEnv;
+    }
 }

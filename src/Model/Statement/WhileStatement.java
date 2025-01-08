@@ -1,9 +1,12 @@
 package Model.Statement;
 
+import Model.ADT.IDictionary;
 import Model.Exceptions.*;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
 import Model.Type.BoolType;
+import Model.Type.IType;
+import Model.Type.IntType;
 import Model.Value.BoolValue;
 import Model.Value.IValue;
 
@@ -38,5 +41,15 @@ public class WhileStatement implements IStatement{
     @Override
     public String toString() {
         return "While (" + this.expression.toString() + ") { " + this.statement.toString() + " }";
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementException, ExpressionException, DictionaryException {
+        IType typeExpression = this.expression.typeCheck(typeEnv);
+        if (!typeExpression.equals(new BoolType())) {
+            throw new StatementException("While statement: Conditional expression is not a boolean.");
+        }
+        this.statement.typeCheck(typeEnv.shallowCopy());
+        return typeEnv;
     }
 }

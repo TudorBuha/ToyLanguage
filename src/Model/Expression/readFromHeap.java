@@ -5,6 +5,7 @@ import Model.ADT.IHeapTable;
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
 import Model.Exceptions.HeapException;
+import Model.Type.IType;
 import Model.Type.RefType;
 import Model.Value.IValue;
 import Model.Value.RefValue;
@@ -38,5 +39,15 @@ public class readFromHeap implements IExpression{
     @Override
     public String toString() {
         return "readFromHeap(" + this.expression.toString() + ")";
+    }
+
+    @Override
+    public IType typeCheck(IDictionary<String, IType> typeEnv) throws ExpressionException, DictionaryException {
+        IType expressionType = this.expression.typeCheck(typeEnv);
+        if (!(expressionType instanceof RefType)) {
+            throw new ExpressionException("ERROR: The expression(" + this.expression.toString() + ") does not evaluate to a RefType.");
+        }
+        RefType refType = (RefType) expressionType;
+        return refType.getInner();
     }
 }

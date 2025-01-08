@@ -1,8 +1,10 @@
 package Model.Statement;
 
+import Model.ADT.IDictionary;
 import Model.Exceptions.*;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
+import Model.Type.IType;
 import Model.Type.StringType;
 import Model.Value.IValue;
 import Model.Value.StringValue;
@@ -47,5 +49,14 @@ public class openRFile implements IStatement{
     @Override
     public IStatement deepCopy() {
         return new openRFile(this.exp.deepCopy());
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementException, ExpressionException, DictionaryException {
+        IType typeExp = this.exp.typeCheck(typeEnv);
+        if (!typeExp.equals(new StringType())) {
+            throw new StatementException("openRFile statement: expression is not a string.");
+        }
+        return typeEnv;
     }
 }

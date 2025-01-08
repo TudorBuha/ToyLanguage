@@ -24,18 +24,13 @@ public class TextMenu {
                             System.out.println(line);
                         }
                 );
-//        System.out.println("Available commands:");
-//        for (Command c : this.commands.values()) {
-//            String line = String.format("%4s: %s", c.getKey(), c.getDescription());
-//            System.out.println(line);
-//        }
     }
 
     public void show() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             this.printMenu();
-            System.out.print("Input the option: ");
+            System.out.print("Give a command: ");
             String key = scanner.nextLine();
             Command currentCommand = this.commands.get(key);
             if (currentCommand == null) {

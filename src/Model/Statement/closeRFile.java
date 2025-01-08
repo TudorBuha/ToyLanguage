@@ -1,8 +1,10 @@
 package Model.Statement;
 
+import Model.ADT.IDictionary;
 import Model.Exceptions.*;
 import Model.Expression.IExpression;
 import Model.ProgramState.ProgramState;
+import Model.Type.IType;
 import Model.Type.StringType;
 import Model.Value.IValue;
 import Model.Value.StringValue;
@@ -44,5 +46,14 @@ public class closeRFile implements IStatement{
     @Override
     public IStatement deepCopy() {
         return new closeRFile(this.expression);
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, Model.Type.IType> typeEnv) throws StatementException, ExpressionException, DictionaryException {
+        IType typeExp = this.expression.typeCheck(typeEnv);
+        if (!typeExp.equals(new StringType())) {
+            throw new StatementException("closeRFile statement: expression is not a string.");
+        }
+        return typeEnv;
     }
 }

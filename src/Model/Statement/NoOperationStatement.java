@@ -1,9 +1,11 @@
 package Model.Statement;
 
+import Model.ADT.IDictionary;
 import Model.Exceptions.DictionaryException;
 import Model.Exceptions.ExpressionException;
 import Model.Exceptions.StatementException;
 import Model.ProgramState.ProgramState;
+import Model.Type.IType;
 
 public class NoOperationStatement implements IStatement {
 
@@ -22,5 +24,10 @@ public class NoOperationStatement implements IStatement {
     @Override
     public String toString() {
         return "NoOp Statement";
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementException, ExpressionException, DictionaryException {
+        return typeEnv;
     }
 }
