@@ -316,7 +316,7 @@ public class Interpreter {
         // example 15: int v; v=10; fork(print(v)); fork(print(v)); v=8; print(v)
         try {
             IStatement ex15 = new CompoundStatement(new VariableDeclarationStatement("v", new IntType()),
-                    new CompoundStatement(new AssignStatement("v", new ValueExpression(new BoolValue(true))),
+                    new CompoundStatement(new AssignStatement("v", new ValueExpression(new BoolValue(true))), //////////////
                             new CompoundStatement(new forkStatement(new PrintStatement(new VariableExpression("v"))),
                                     new CompoundStatement(new forkStatement(new PrintStatement(new VariableExpression("v"))),
                                             new CompoundStatement(new AssignStatement("v", new ValueExpression(new IntValue(8))),

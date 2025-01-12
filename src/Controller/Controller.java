@@ -1,14 +1,10 @@
 package Controller;
 
-import Model.ADT.MyDictionary;
 import Model.Exceptions.*;
 import Model.ProgramState.ProgramState;
-import Model.Type.IType;
 import Model.Value.IValue;
 import Model.Value.RefValue;
 import Repository.IRepository;
-import Model.*;
-import Model.Statement.IStatement;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -19,18 +15,7 @@ public class Controller {
     private ExecutorService executor;
 
     public Controller(IRepository repo) {
-        try{
-            this.repo = repo;
-            typecheck();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public void typecheck() throws ControllerException, StatementException, ExpressionException, DictionaryException {
-        ProgramState prg = repo.getPrgList().get(0);
-        MyDictionary<String, IType> typeEnv = new MyDictionary<>();
-        prg.getOriginalProgram().typeCheck(typeEnv);
+        this.repo = repo;
     }
 
     public void addProgramState(ProgramState prg) {
